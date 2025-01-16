@@ -1,1 +1,1 @@
-# SKN06-4TH-2TEAM
+# SKN06-4th-2team
