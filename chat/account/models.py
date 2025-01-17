@@ -6,8 +6,6 @@ from django.forms import forms
 ## 확장 User 모델 
 # - AbstractUser로 구현: 기본 User(username, password)에 필드들을 추가하는 방식
 # - AbstractUser 상속. 필드들 정의(username, password빼고 정의)
-
-
 class User(AbstractUser):
     # groups와 user_permissions 필드에 고유한 related_name 설정
     groups = models.ManyToManyField(
@@ -26,7 +24,10 @@ class User(AbstractUser):
     )
     
     # name 필드 추가
-    name = models.CharField(max_length=255, blank=True, null=True)
-
+    name = models.CharField(max_length=255, blank=True, null=True) 
+    email = models.EmailField(max_length=255, blank=True, null=True)
+    birthday = models.DateField(blank=True, null=True)  # 오늘 추가했다. 
+    
     def __str__(self):
         return f"username: {self.username}, name: {self.name}"
+
