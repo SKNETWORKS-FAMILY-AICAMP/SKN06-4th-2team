@@ -103,12 +103,13 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'account.User'
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-kr'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
@@ -125,6 +126,15 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+##################
+# 로그인 관련설정
+##################
+# 로그인 안한 사용자가 로그인해야 실행할 수있는 View를 호출 했을때 
+#                        이동할 url 설정.
+LOGIN_URL = '/account/login' 
 
+# 로그인/로그아웃 처리후에 이동할 url - Class기반 View를 사용할 때 필요
+LOGIN_REDIRECT = '/'
+LOGOUT_REDIRECT = '/'
 # 브라우저 종료 시 세션이 만료되도록
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True

@@ -1,49 +1,12 @@
-<!DOCTYPE html>
-<html lang="en"></html>
-
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title> 환영합니다. </title>
+<!-- root/templates/home.html -->
+{% extends "layout.html" %}
 
 
-    <style>
-    header {
-        margin-bottom: 80px;
-        background-color: #E5FCCF;
-        padding: 20px 0;
-        top: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+{% block title %}홈{% endblock title %}
 
-    .login {
-        margin-right: 30px; /* 필요하면 여백 추가 */
-        color: #426B1F;
-        text-decoration: none;
-        font-size: 16px;
-    }
+{% block contents%}
+<h2>맛집검색 앱입니다.</h2>
+<p>
 
 
-    </style>
-
-</head>
-
-
-
-
-<body>
-
-    <header>
-    
-        <a herf="./Home.html" class="logo"> 블루리본 서베이 </a>
-        <a  class="login"> 로그인 </a>
-    
-    </header>
-
-
-</body>
+{% endblock contents%}

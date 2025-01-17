@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>환영합니다.</title>
+    <style>
+        header {
+            margin-bottom: 80px;
+            background-color: #E5FCCF;
+            padding: 20px 0;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .login {
+            margin-right: 30px;
+            color: #426B1F;
+            text-decoration: none;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="/" class="logo">블루리본 서베이</a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'account:logout' %}" class="nav-link">로그아웃</a>
+        <a href="{% url 'account:detail' %}" class="nav-link">
+            {{ user.username }}
+        </a>
+        {% else %}
+        <a href="{% url 'account:create' %}" class="nav-link">가입</a>
+        <a href="{% url 'account:login' %}" class="nav-link">로그인</a>
+        {% endif %}
+    </header>
+    <div class="container mt-3">
+        {% block contents %}{% endblock %}
+    </div>
+</body>
+
+</html>

@@ -23,7 +23,7 @@ class CustomUserCreationForm(UserCreationForm):
         model = User  # User model의 field를 이용해서 form field를 구성
         # fields = "__all__" # 모델의 모든 field들을 사용해서 form field구성
         fields = ["username", "password1", "password2", 
-                "name", "email", "birthday", "profile_img"] # form field로 구성할 것들들을 명시.
+                "name", "email", "birthday", ] # form field로 구성할 것들들을 명시.
         # exclude = ["필드명"] # 지정한 필드명을 제외한 나머지 필드드로 form 필드 구성.
         # fields와 exclude는 같이 설정할 수 없다.
         
@@ -45,6 +45,8 @@ class CustomUserCreationForm(UserCreationForm):
     def clean_name(self):
         # self.cleaned_data: dict - 기본 검증을 통과한 요청파라미터들.
         name = self.cleaned_data['name']
+        if not name:    # name이 None일 경우 처리
+            raise forms.ValidationError("Name cannot be empty.")
         if len(name) < 2 :
             raise forms.ValidationError("이름은 2글자 이상 입력하세요.")
         return name # 리턴해주는 값이 View가 사용하는 값.
@@ -56,7 +58,7 @@ class CustomUserChangeForm(UserChangeForm):
 
     class Meta:
         model = User
-        fields = ['name', 'email', 'birthday', 'profile_img']
+        fields = ['name', 'email', 'birthday']
         widgets = {
             'birthday':forms.DateInput(attrs={'type':'date'})
         }
