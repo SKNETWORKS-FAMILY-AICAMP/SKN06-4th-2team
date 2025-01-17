@@ -1,33 +1,126 @@
-<!-- account/templates/account/create.html -->
-{% extends "layout.html" %}
-{% load django_bootstrap5 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {font-family: 'Noto Sans KR';font-style: normal;font-weight: 400;src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2');}
 
-{% comment %}
+        body {
+            margin: 0 auto;
+            font-family: 'Noto Sans KR';
+            background-color: #e6f0ff;
+        }
 
-- pip install django-bootstrap5
-- template에서 form을 출력할 때 bootstrap 스타일을 적용.
-- form 과 관련된 template 태그들을 제공
-1. load : {%load django_bootstrap5%}
-2. {{form}} 대신에 {% bootstrap_form  form객체 %}
+        a {
+            text-decoration: none;
+            color: #333;
+        }
 
-{% endcomment %}
+        #con {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
+        #login_form {
+            border-radius: 10px;
+            padding: 30px 50px;
+            background: #fff;
+            text-align: center;
+            width: 400px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
 
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
 
-{% block title %}회원가입{% endblock title %}
+        .login {
+            font-size: 25px;
+            font-weight: 900;
+            color: #333;
+        }
 
-{% block contents %}
-<h1>회원가입</h1>
-<img src="/static/account/imgs/join.jpg" height="300">
-<form method="post" 
-      enctype="multipart/form-data"
-      onsubmit='return check_name_length(this.name.value)'>
-    {% csrf_token %}
-    {% bootstrap_form form %} {#{form}#}
-    <div class="mt-3">
-        <button type="submit" class="btn btn-primary">가입</button>
-        <button type="reset" class="btn btn-primary">초기화</button>
+        .size {
+            width: 300px;
+            height: 30px;
+            padding-left: 10px;
+            background-color: #f4f4f4;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            width: 310px;
+            height: 40px;
+            font-size: 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #007bff;
+        }
+
+        hr {
+            margin-top: 20px;
+            background: #eee;
+        }
+
+        .find {
+            color: #ddd;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div id="con">
+        <div id="login_form">
+            <div class="logo-container">
+                <img src="image/bluerb.png" alt="Logo" style="width: 120px;">
+            </div>
+            <h3 class="login">Sign up to Web</h3>
+
+            <hr>
+
+            <form method="post">
+                <p style="text-align: left; font-size:12px; color:#666">Username</p>
+                <input type="text" placeholder="아이디" class="size">
+
+                <p style="text-align: left; font-size:12px; color:#666">Password</p>
+                <input type="password" placeholder="비밀번호" class="size">
+
+                <p style="text-align: left; font-size:12px; color:#666">Confirm Password</p>
+                <input type="password" placeholder="비밀번호 확인" class="size">
+
+                <p style="text-align: left; font-size:12px; color:#666">Birth</p>
+                <input type="text" placeholder="-생일일" class="size">
+
+                <p style="text-align: left; font-size:12px; color:#666">E-mail</p>
+                <input type="text" placeholder="이메일" class="size">
+
+                <p>
+                    <input type="submit" value="Create Account" class="btn">
+                </p>
+            </form>
+
+            <hr>
+            <p class="find">
+                <span><a href="login.html">로그인 페이지로 이동</a></span>
+            </p>
+        </div>
     </div>
-</form>
-<script src="/static/account/js/check.js"></script>
-{% endblock contents %}
+</body>
+</html>
