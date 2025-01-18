@@ -58,13 +58,16 @@
     
 - **챗 화면:**  
   - 챗 서비스 제공 화면 구성
+    <br>
+    ![Chatting](https://github.com/user-attachments/assets/ee09d065-62a3-4e01-a6fe-0c6e68fe0785)
+
 
 ---
 
 ## 6. 시스템 구성도  
 <br>
 
-![system_architecture](https://github.com/user-attachments/assets/3470726f-1fd7-43f4-ba5a-ff68b0015a89)
+<img src="https://github.com/user-attachments/assets/3470726f-1fd7-43f4-ba5a-ff68b0015a89" alt="system_architecture" width="500">
 
 
 
