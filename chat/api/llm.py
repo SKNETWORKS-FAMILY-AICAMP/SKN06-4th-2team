@@ -1,17 +1,13 @@
 import os
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_chroma import Chroma
-from langchain.prompts import ChatPromptTemplate
-from langchain_core.runnables import RunnableLambda
-from langchain_core.documents import Document
-from langchain_core.output_parsers import StrOutputParser
-from textwrap import dedent
 from cachetools import LRUCache
 from time import sleep
-
+from dotenv import load_dotenv
+from textwrap import dedent
 import traceback
 
-
+load_dotenv()
 
 
 class Chatting:
@@ -28,43 +24,33 @@ class Chatting:
         self.retriever = vector_store.as_retriever(
             search_type="mmr",
             search_kwargs={
-                "k": 50,
+                "k": 20,
                 "fetch_k": 200,
-                "lambda_mult": 0.5,
+                "lambda_mult": 0.7,
             }
         )
 
-        # 프롬프트 템플릿 설정
-        self.prompt_template = ChatPromptTemplate.from_messages([
-            ("system", dedent("""
-                당신은 한국의 식당을 소개하는 인공지능 비서입니다.
-                반드시 질문에 대해서 [context]에 주어진 내용을 바탕으로 답변을 해주세요.
-                질문에 '리본개수', '평점', '몇 개'라는 키워드가 포함된 경우, [context]에서 "리본개수" 항목을 확인해 답변하세요.
-                리본개수는 평점과 같은 의미를 가집니다.
-                [context]
-                {context}
-            """)),
-            ("human", "{question}")
-        ])
+        # 프롬프트 템플릿 설정 (초기화 시 한 번만 정의)
+        self.prompt_template = dedent("""
+        당신은 한국의 식당을 추천하고 정보를 제공하는 인공지능 비서입니다.
+        반드시 아래 [context]에 제공된 정보만 사용해 답변하세요. 
+        [context]에 없는 정보에 대해서는 "문맥에 없습니다"라고 답변하세요.
 
-        self.output_parser = StrOutputParser()
+        참고:
+        - '리본개수', '평점', '몇 개' 키워드가 포함된 질문은 [context]의 "리본개수" 항목을 확인해 답변하세요.
+        - 리본개수는 평점과 동일한 의미를 가지므로 이를 바탕으로 답변을 작성하세요.
+        - 모든 답변은 간결하고 명확하게 작성하세요.
+        [context]
+        {context}
 
-        # 데이터 흐름 정의
-        self.chain = (
-            {
-                "context": RunnableLambda(self.get_cached_relevant_documents),
-                "question": RunnableLambda(lambda inputs: inputs["query"])
-            }
-            | self.prompt_template
-            | self.model
-            | self.output_parser
-        )
+        질문: {question}
+        답변:
+        """)
 
-    def get_cached_relevant_documents(self, inputs):
+    def get_cached_relevant_documents(self, query):
         """
         검색 요청에 대해 캐싱 및 API 호출 속도 제한 적용.
         """
-        query = inputs["query"]
         if query in self.cache:
             return self.cache[query]
         try:
@@ -78,13 +64,26 @@ class Chatting:
             traceback.print_exc()
             return "검색 결과를 가져오는 중 문제가 발생했습니다."
 
-    def send_message(self, message, history):
+    def send_message(self, message, history=None):
         """
         사용자 메시지를 처리하고 AI 응답을 반환합니다.
         """
         try:
-            response = self.chain.invoke({"history": history, "query": message})
-            return response
+            # 검색된 context와 사용자 질문을 프롬프트에 삽입
+            context = self.get_cached_relevant_documents(message)
+            prompt = self.prompt_template.format(context=context, question=message)
+
+            # 응답 생성
+            response = self.model.invoke(prompt)
+
+            # 응답을 텍스트로 변환
+            response_text = str(response.content)  # 텍스트 추출
+
+            # 대화 기록 업데이트
+            if history is not None:
+                add_message_to_history(history, {"message": message, "response": response_text})
+
+            return response_text  # 텍스트만 반환
         except Exception as e:
             print(f"Error during chat response generation: {e}")
             traceback.print_exc()
@@ -102,7 +101,7 @@ def add_message_to_history(history, message, max_history=20):
 
 # 벡터 스토어 및 임베딩 모델 설정
 COLLECTION_NAME = "bluer_db_openai"
-PERSIST_DIRECTORY = "../vector_store/chroma/bluer_db"
+PERSIST_DIRECTORY = "vector_store/chroma/bluer_db"
 EMBEDDING_MODEL_NAME = 'text-embedding-3-small'
 
 embedding_model = OpenAIEmbeddings(model=EMBEDDING_MODEL_NAME)
@@ -114,7 +113,3 @@ vector_store = Chroma(
 
 # Chatting 클래스 초기화
 chat = Chatting(vector_store=vector_store)
-
-
-        
-        
