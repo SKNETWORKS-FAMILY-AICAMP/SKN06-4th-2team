@@ -62,6 +62,12 @@
 ---
 
 ## 6. 시스템 구성도  
+<br>
+
+![system_architecture](https://github.com/user-attachments/assets/3470726f-1fd7-43f4-ba5a-ff68b0015a89)
+
+
+
 
 ## 7. 테스트 계획서 및 테스트 결과 보고서  
 
