@@ -49,6 +49,8 @@ def create(request):
         ## 객체 생성 -> 요청파라미터들을 attribute로 저장. 검증처리.
 
         # 2. 요청파라미터 검증
+        print(form.is_valid)
+        print("")
         if form.is_valid(): # 검증에러 없으면 True.
             # 3. DB에 저장(검증 성공)
             user = form.save() 

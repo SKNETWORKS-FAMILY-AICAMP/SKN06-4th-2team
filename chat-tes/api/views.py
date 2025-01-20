@@ -63,7 +63,7 @@ def chat_view(request):
 
     return render(request, "chat.html", {"history": history, "name": name})
 
-@csrf_exempt
+
 @csrf_exempt
 def chat_message_api(request):
     if request.method == "POST":
@@ -93,3 +93,4 @@ def chat_message_api(request):
                 sleep(0.02)
 
         return StreamingHttpResponse(generate_response(), content_type="text/html")
+

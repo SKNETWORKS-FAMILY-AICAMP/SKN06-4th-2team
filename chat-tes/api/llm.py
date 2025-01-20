@@ -78,12 +78,9 @@ class Chatting:
         """
         사용자 메시지를 처리하고 AI 응답을 반환합니다.
         """
-
         try:
-        # 검색된 context 가져오기
             context = self.get_cached_relevant_documents(message)
 
-            # ✅ history를 명확한 질의-응답 형식으로 변환
             history_text = ""
             for h in history:
                 if h[0] == "human":
@@ -91,19 +88,15 @@ class Chatting:
                 else:
                     history_text += f"\nAI: {h[1]}"
 
-            # ✅ 개선된 프롬프트 적용
             prompt = self.prompt_template.format(history=history_text, context=context, question=message)
 
-            # 응답 생성
             response = self.model.invoke(prompt)
 
-            # 응답을 텍스트로 변환
-            response_text = str(response.content)  # 텍스트 추출
+            response_text = str(response.content)  # 텍스트 변환
 
-            return response_text  # 텍스트만 반환
+            return response_text  # 🔹 history 저장은 API 함수에서만!
         except Exception as e:
             print(f"Error during chat response generation: {e}")
-            traceback.print_exc()
             return "응답을 생성하는 중 문제가 발생했습니다. 다시 시도해주세요."
 
 
