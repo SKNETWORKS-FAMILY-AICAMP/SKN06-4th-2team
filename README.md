@@ -24,7 +24,9 @@
 ---
 
 ### **Stacks**
-![image](https://github.com/user-attachments/assets/227d16b4-9c5a-4b00-b00c-fcb6986cbf2c) python
+|![image](https://github.com/user-attachments/assets/227d16b4-9c5a-4b00-b00c-fcb6986cbf2c)| ddd |   |   |   |   |   |   |   |   |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| python  |   |   |   |   |   |   |   |   |   |
 
 
 
