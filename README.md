@@ -8,7 +8,7 @@
 | 강채연 | 김동명| 박창규 | 백하은| 홍준 |
 | --- | --- | --- | --- | --- |
 | ![IE001847808_STD](https://github.com/user-attachments/assets/c2f2176b-7c40-4769-b3a4-7dbef5565109) |![돌아이](https://github.com/user-attachments/assets/eac6eb13-7166-409a-9f04-defaeb629cfe)|![100](https://github.com/user-attachments/assets/89f5e5ed-6412-44bf-99e9-13bef9668415)|![강록이형](https://github.com/user-attachments/assets/3f3a4698-0df0-4028-8a9c-d8ced265a568)|![눈감성재](https://github.com/user-attachments/assets/19d76aae-223c-44b1-9fb9-57fd0991293f)|
-| 백엔드 | 산출물 정리 및 작성 |웹사이트 구축, 프론트엔드|모델 성능 개선, html| 백엔드 |
+| 백엔드 | 산출물 정리 및 작성 |웹사이트 구축, 프론트엔드|모델 성능 개선, 프론트엔드드| 백엔드 |
 
 </br>
 
@@ -160,20 +160,21 @@
 ### 테스트 계획서
 </br>
 
-![테스트 계획서_서버](https://github.com/user-attachments/assets/5e8feea0-810a-494d-9eb9-8736b518e98b)
-
+![테스트 계획서_서버](https://github.com/user-attachments/assets/8f76a38d-0b0c-4fc7-bf28-24ccbdd37bdf)
 
 </br>
 
 ![테스트 계획서_챗봇](https://github.com/user-attachments/assets/0b0e58e7-89a2-4349-a6c3-dc4eead58f89)
 
+</br>
 
+![동시 접속 평가](https://github.com/user-attachments/assets/7ea620c5-073e-4062-809a-ecd642464d05)
 
 ### 테스트 결과 보고서
 #### 1. Test 결과
 > **배포 가능**
 > 
-> URL : 
+> URL : http://127.0.0.1:8000/
 > 
 > APP : manage.py, app.py
 >
@@ -200,7 +201,7 @@
 
 #### 5. 참고내용
 > 블루리본 서베이는 꾸준히 업데이트 되기 때문에 2025년 최근 등재 된 식당 정보는 누락될 수 있습니다.
-> 
+> AWS 의 프리티어 사용하여 
 
 #### 6. 추가 문의
 흑흑 요리사
