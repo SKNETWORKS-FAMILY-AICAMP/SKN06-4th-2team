@@ -127,7 +127,7 @@
 </br>
 
 |LLM_context_recall|LLM_context_precision_with_reference|Faithfulness|Answer_relevancy|
-
+|---|---|---|---|
 |문맥재현율|정밀도|신뢰도|답변관련성|
 |---|---|---|---|
 |0.8313|0.3611|0.6520|0.3766|
