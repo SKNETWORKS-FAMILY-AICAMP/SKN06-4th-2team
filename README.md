@@ -24,9 +24,9 @@
 ---
 
 ### **Stacks**
-|![image](https://github.com/user-attachments/assets/227d16b4-9c5a-4b00-b00c-fcb6986cbf2c)| ![image](https://github.com/user-attachments/assets/49987c99-cb3c-47f1-b20c-087f3035c517)|![image](https://github.com/user-attachments/assets/7734ac1a-06a8-4d7f-9b5b-f7ec5f7c1c34)|![image](https://github.com/user-attachments/assets/374c9758-19bb-43d6-b714-6e537a2456a6)|![image](https://github.com/user-attachments/assets/cd8aaea2-3c3b-42c0-94f8-92cad18b1ec7)|   |   |   |   |   |
+|![image](https://github.com/user-attachments/assets/227d16b4-9c5a-4b00-b00c-fcb6986cbf2c)| ![image](https://github.com/user-attachments/assets/49987c99-cb3c-47f1-b20c-087f3035c517)|![image](https://github.com/user-attachments/assets/7734ac1a-06a8-4d7f-9b5b-f7ec5f7c1c34)|![image](https://github.com/user-attachments/assets/374c9758-19bb-43d6-b714-6e537a2456a6)|![image](https://github.com/user-attachments/assets/cd8aaea2-3c3b-42c0-94f8-92cad18b1ec7)|![image](https://github.com/user-attachments/assets/bea1e19d-d49c-4893-b50e-781b6b61f36d)|![image](https://github.com/user-attachments/assets/27a58958-1248-42fb-93ac-eb7bf1b9563a)|![image](https://github.com/user-attachments/assets/ac9b86bc-c77f-40ee-a2ce-bbecb871cbc4)|![image](https://github.com/user-attachments/assets/89f04315-09b8-4d0e-9681-e4db82ccaa7f)|![image](https://github.com/user-attachments/assets/8e51d64c-1221-42d7-9646-eee2a656d3df)|
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|python|RAG|HTML|   |   |   |   |   |   |   |
+|python|RAG|OpenAI|Github|HTML|CSS|Javascript|django|Bootstrap|AWS|
 
 
 
