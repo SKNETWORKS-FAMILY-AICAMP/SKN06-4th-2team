@@ -1,0 +1,168 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffff;
+    color: #333;
+}
+
+header {
+    background-color: #e6f0ff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ddd;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.main-content {
+    text-align: center;
+    padding: 30px;
+}
+
+.main-content h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.main-content img {
+    width: 200px;
+    height: 150px;
+    margin-bottom: 30px;
+}
+
+.description {
+    background-color: #e6f0ff;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 90%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.description p {
+    font-size: 20px;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.service-box {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.search-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* ✅ 2열 레이아웃 적용 */
+    gap: 30px; /* ✅ 간격 조정 */
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    justify-items: center;
+    align-items: center;
+}
+
+.search-item {
+    text-align: center;
+    width: 100%;
+    max-width: 250px;
+}
+
+.search-item img {
+    width: 100px; /* ✅ 이미지 크기 */
+    height: 100px;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-item p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+.chat-button {
+    display: inline-block;
+    background-color: #5b8dee;
+    color: #fff;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: auto;
+}
+
+.chat-button:hover {
+    background-color: #4a76d1;
+}
+
+footer {
+    margin: 20px auto;
+    margin-top: 60px;
+    padding: 30px 0;
+    max-width: 90%;
+    background-color: #ffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.footer-note {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.footer-note ul {
+    padding-left: 20px;
+}
+
+.footer-note li {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+    .search-grid {
+        grid-template-columns: repeat(2, 1fr); /* ✅ 모바일에서도 2x2 유지 */
+    }
+}

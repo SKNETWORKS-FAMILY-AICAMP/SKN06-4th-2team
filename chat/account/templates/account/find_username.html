@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Username</title>
+    <link rel="stylesheet" href="{% static 'css/find.css' %}">
+</head>
+
+<body>
+    <div id="con">
+        <div class="description-box">
+            <div class="logo-container">
+                <img src="{% static 'images/bluerb.png' %}" alt="Logo" class="logo">
+            </div>
+            <h3 class="login">Find Username</h3>
+
+            <hr>
+
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li class="{{ message.tags }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <form method="POST" action="{% url 'account:find_username' %}">
+                {% csrf_token %}
+        
+                
+            
+                <label class="field-label">E-mail</label>
+                <input type="email" name="email" placeholder="example@example.com" class="size" required>
+            
+                <p>
+                    <input type="submit" value="Find Username" class="btn">
+                </p>
+            </form>
+
+            <hr>
+            <a href="{% url 'account:login' %}" class="find-password-link">Back to Login</a>
+        </div>
+    </div>
+</html>

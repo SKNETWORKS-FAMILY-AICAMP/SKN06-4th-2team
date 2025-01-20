@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>블루리본 서베이</title>
+    <link rel="stylesheet" href="{% static 'css/chat.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const chatForm = document.querySelector(".chat-input");
+    const messageInput = document.querySelector("input[name='message']");
+    const chatBox = document.querySelector(".chat-box");
+
+    chatForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const userMessage = messageInput.value.trim();
+        if (userMessage === "") return;
+        messageInput.value = "";
+
+        // ✅ 사용자의 메시지를 UI에 추가
+        addMessageToChatBox("human", userMessage);
+
+        // ✅ AI 응답을 위한 빈 메시지 추가
+        const aiMessageDiv = document.createElement("div");
+        aiMessageDiv.classList.add("message", "ai");
+        aiMessageDiv.innerHTML = `<strong>BLUAI(AI):</strong> <span id="typing"></span>`;
+        chatBox.appendChild(aiMessageDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+        // ✅ 서버에 스트리밍 요청
+        fetch("{% url 'api:chat_message_api' %}", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRFToken": getCSRFToken(),
+            },
+            body: JSON.stringify({ message: userMessage }),
+        })
+        .then(response => response.body.getReader())
+        .then(reader => {
+            let decoder = new TextDecoder();
+            let result = "";
+
+            function read() {
+                reader.read().then(({ done, value }) => {
+                    if (done) return;
+                    result += decoder.decode(value, { stream: true });
+                    document.getElementById("typing").innerHTML = result;
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                    read();
+                });
+            }
+            read();
+        })
+        .catch(error => console.error("❌ Error:", error));
+    });
+
+    function addMessageToChatBox(sender, message) {
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("message", sender === "human" ? "human" : "ai");
+        messageDiv.innerHTML = `<strong>${sender === "human" ? "{{ user_name }}" : "BLUAI(AI)"}:</strong> ${message}`;
+        chatBox.appendChild(messageDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function getCSRFToken() {
+        return document.querySelector("[name=csrfmiddlewaretoken]").value;
+    }
+});
+</script>
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="{% static 'images/bluerb.png' %}" alt="Logo" style="width: 100px;">
+            </div>
+            <div>
+                <div class="menu-item">Survery Bot</div>
+            </div>
+            <div class="logout">
+                <a href="{% url 'account:logout' %}" style="text-decoration: none; color: inherit;">로그아웃</a>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="header">
+                <h1>블루리본 서베이 챗봇</h1>
+                <div class="search-container">
+                    <input type="text" placeholder="Search">
+                    <div class="icon">👤</div>
+                </div>
+            </div>
+
+            <!-- ✅ 기존 채팅 데이터를 JSON으로 저장하고, 직접 렌더링하지 않음 -->
+            <div class="chat-box">
+                {% for message in history %}
+                    <div class="message {% if message.0 == 'human' %}human{% else %}ai{% endif %}">
+                        <strong>{% if message.0 == 'human' %}{{ user_name }}{% else %}BLUAI(AI){% endif %}:</strong>
+                        {{ message.1|safe }}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <form method="post" class="chat-input">
+                {% csrf_token %}
+                <input type="text" name="message" placeholder="메시지를 입력하세요." required>
+                <button type="submit">전송</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

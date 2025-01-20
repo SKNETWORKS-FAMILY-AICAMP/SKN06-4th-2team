@@ -2,6 +2,7 @@
 **/migrations/
 **/migrations/*.pyc
 # ChromaDB vector store 관련 파일 무시
-chat-tes/vector_store/chroma/
+chat/vector_store/chroma/
 *.sqlite3
-chat-tes/.env
+chat/.env
+*.env
