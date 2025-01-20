@@ -14,7 +14,7 @@
 
 ## 1. 프로젝트 소개  
 ### **주제**  
-**블루리본 서베이 챗봇**  
+**블루리본 서베이 챗봇 및 웹사이트**  
 
 ### **주제 선택 이유**  
 -  최근 '흑백요리사', '백종원의 레미제라블', '냉장고를 부탁해 시즌2' 등 요리 관련 경연 프로그램이 다시 뜨거운 인기를 끌고 있다. 이에 따라 대중에게 다양한 음식 정보를 구체적으로 제공하여, 이들의 요리 경험에 대한 수요를 충족시킬 수 있는 챗봇을 서비스하려 한다.
@@ -118,6 +118,7 @@
 ---
 
 ## 4. 요구사항 정의서  
+![요구사항 정의서](https://github.com/user-attachments/assets/85afa959-7c60-4de9-9caa-01c2b8c86728)
 
 
 ---
@@ -140,14 +141,18 @@
 ## 6. 시스템 구성도  
 </br>
 
-<img src="https://github.com/user-attachments/assets/3470726f-1fd7-43f4-ba5a-ff68b0015a89" alt="system_architecture" width="500">
-
+![System_architecture](https://github.com/user-attachments/assets/e5893ba3-956a-45a8-bea8-30a82e1064ce)
 
 
 
 ## 7. 테스트 계획서 및 테스트 결과 보고서  
 
 ### 테스트 계획서
+</br>
+![테스트 계획서_서버](https://github.com/user-attachments/assets/5c93174a-da97-4b01-9444-eba399a2ec53)
+</br>
+![테스트 계획서_챗봇](https://github.com/user-attachments/assets/ab4312d2-e75d-481d-a9f5-08de286ccb74)
+
 
 ### 테스트 결과 보고서
 #### 1. Test 결과
