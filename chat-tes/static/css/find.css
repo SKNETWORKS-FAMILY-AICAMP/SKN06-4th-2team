@@ -1,111 +1,73 @@
-/* 기본 레이아웃 스타일 */
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5faff;
-    color: #333;
-}
-
-header {
-    background-color: #e6f0ff;
-    padding: 20px 40px;
+    background-color: #e6f0ff; /* Light blue background */
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    border-bottom: 2px solid #ddd;
+    height: 100vh; /* Full viewport height */
 }
 
-.logo {
-    font-size: 20px;
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
+/* Centering the container */
+#con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
-.main-content {
+/* Description box styling */
+.description-box {
+    background-color: #ffffff; /* White background for the box */
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     text-align: center;
-    padding: 40px;
 }
 
-.main-content h1 {
-    font-size: 32px;
+/* Logo styling */
+.logo-container img {
+    width: 120px;
     margin-bottom: 20px;
 }
 
-.form-container {
-    background-color: #e6f0ff;
-    padding: 30px;
-    margin: 0 auto;
-    max-width: 400px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Field label styling */
+.field-label {
+    text-align: left;
+    font-size: 12px;
+    color: #666;
+    margin: 10px 0 5px;
 }
 
-.form-container h2 {
-    font-size: 20px;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-.input-field {
-    width: 50%;
-    align-items: center;
+/* Input field styling */
+.size {
+    width: 100%;
     padding: 10px 15px;
-    margin: 10px 0;
-    font-size: 16px;
+    margin: 5px 0 20px;
+    font-size: 14px;
     border: 1px solid #ddd;
     border-radius: 5px;
     box-sizing: border-box;
-    text-align: center;
 }
 
-.input-field:focus {
-    border-color: #5b8dee;
-    outline: none;
-    box-shadow: 0 0 5px rgba(91, 141, 238, 0.5);
-}
-
-.submit-button {
-    display: block;
-    background-color: #5b8dee;
-    color: #fff;
+/* Button styling */
+.btn {
     width: 100%;
-    height: 40px;
-    line-height: 40px;
+    padding: 10px 15px;
     font-size: 16px;
-    text-align: center;
+    color: #fff;
+    background-color: #5b8dee;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 15px;
+    transition: background-color 0.3s ease;
 }
 
-.submit-button:hover {
+.btn:hover {
     background-color: #4a76d1;
-}
-
-.back-link {
-    display: block;
-    margin-top: 15px;
-    font-size: 14px;
-    color: #5b8dee;
-    text-decoration: none;
-}
-
-.back-link:hover {
-    text-decoration: underline;
-}
-
-footer {
-    margin: 20px auto;
-    padding: 20px 0;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 14px;
-    color: #666;
-    max-width: 90%;
 }

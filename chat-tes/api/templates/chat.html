@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="{% static 'css/chat.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
     
-    <script>
 
+<script>
 document.addEventListener("DOMContentLoaded", function () {
     const chatForm = document.querySelector(".chat-input");
     const messageInput = document.querySelector("input[name='message']");
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // ✅ AI 응답을 위한 빈 메시지 추가
         const aiMessageDiv = document.createElement("div");
         aiMessageDiv.classList.add("message", "ai");
-        aiMessageDiv.innerHTML = `<strong>BlueRibbon(AI):</strong> <span id="typing"></span>`;
+        aiMessageDiv.innerHTML = `<strong>BLUAI(AI):</strong> <span id="typing"></span>`;
         chatBox.appendChild(aiMessageDiv);
         chatBox.scrollTop = chatBox.scrollHeight;
 
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function addMessageToChatBox(sender, message) {
         const messageDiv = document.createElement("div");
         messageDiv.classList.add("message", sender === "human" ? "human" : "ai");
-        messageDiv.innerHTML = `<strong>${sender === "human" ? "사용자" : "BlueRibbon(AI)"}:</strong> ${message}`;
+        messageDiv.innerHTML = `<strong>${sender === "human" ? "{{ user_name }}" : "BLUAI(AI)"}:</strong> ${message}`;
         chatBox.appendChild(messageDiv);
         chatBox.scrollTop = chatBox.scrollHeight;
     }
@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return document.querySelector("[name=csrfmiddlewaretoken]").value;
     }
 });
+</script>
     </script>
 </head>
 
@@ -101,6 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="chat-box">
                 {% for message in history %}
                     <div class="message {% if message.0 == 'human' %}human{% else %}ai{% endif %}">
+                        <strong>{% if message.0 == 'human' %}{{ user_name }}{% else %}BLUAI(AI){% endif %}:</strong>
                         {{ message.1|safe }}
                     </div>
                 {% endfor %}

@@ -27,7 +27,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
-
+# gmail
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = 'bluai2005@gmail.com'
+EMAIL_HOST_PASSWORD ='acqb hyal zhrn nbay' # gmail 2단계 보안 인증 - 앱 비밀번호임! 
+EMAIL_PORT = 587 # gmail SMTP 포트 
+EMAIL_USE_TLS = True # TLS Setting
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'api',
     'account',
 ]

@@ -27,6 +27,15 @@ from .models import User
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 
+from django.core.mail import send_mail
+from django.contrib.auth import get_user_model  
+from django.conf import settings
+from django.contrib import messages
+import random
+import datetime
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes, force_str
 # account/views.py
 
 # 사용자 가입 (요청파라미터-CustomUserCreationForm-ModelForm 이용)
@@ -190,4 +199,91 @@ def user_delete(request):
     # 삭제후 로그아웃
     logout(request)
     return redirect(reverse('home'))
+User = get_user_model()
+def find_username(request):
+    if request.method == "POST":
+        email = request.POST.get("email")
 
+        try:
+            user = User.objects.get(email=email)
+            username = user.username
+
+            send_mail(
+                '아이디 찾기 결과',
+                f'회원님의 아이디는 {username} 입니다.',
+                settings.DEFAULT_FROM_EMAIL,
+                [email],
+                fail_silently=False,
+            )
+
+            messages.success(request, "아이디를 이메일로 전송했습니다.")
+        except User.DoesNotExist:
+            messages.error(request, "해당 이메일과 생년월일을 가진 사용자가 없습니다.")
+
+    return render(request, "account/find_username.html")
+
+def find_password(request):
+    if request.method == "POST":
+        email = request.POST.get("email")
+
+        try:
+            user = User.objects.get(email=email)
+
+            # UID + Token 생성
+            uid = urlsafe_base64_encode(force_bytes(user.pk))
+            token = default_token_generator.make_token(user)
+            reset_url = request.build_absolute_uri(
+                reverse('account:password_reset_confirm', kwargs={'uidb64': uid, 'token': token})
+            )
+
+            # 이메일 전송
+            send_mail(
+                '비밀번호 재설정 Link',
+                f'비밀번호를 재설정하려면 링크를 클릭하세요요: {reset_url}',
+                settings.DEFAULT_FROM_EMAIL,
+                [email],
+                fail_silently=False,
+            )
+
+            messages.success(request, "비밀번호 재설정 링크가 이메일로 전송되었습니다.")
+            return redirect('account:find_password')
+
+        except User.DoesNotExist:
+            messages.error(request, "No account found with this email.")
+
+    return render(request, "account/find_password.html")
+
+# 🔹 2. 사용자가 이메일에서 링크를 클릭하면 실행됨
+def password_reset_confirm(request, uidb64, token):
+    try:
+        uid = force_str(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+
+        # 토큰 검증
+        if not default_token_generator.check_token(user, token):
+            messages.error(request, "유효하지 않거나 만료된 토큰")
+            return redirect('account:find_password')
+
+    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+        messages.error(request, "잘못된 요청입니다.")
+        return redirect('account:find_password')
+
+    if request.method == "POST":
+        new_password = request.POST.get("new_password")
+        confirm_password = request.POST.get("confirm_password")
+
+        if new_password != confirm_password:
+            messages.error(request, "비밀번호가 일치하지 않습니다.")
+        else:
+            user.set_password(new_password)
+            user.save()
+
+            messages.success(request, "비밀번호가 성공적으로 변경되었습니다. 다시 로그인 해주세요.")
+            return redirect('account:password_reset_complete')
+
+    return render(request, "account/reset_password.html")
+
+
+# 🔹 3. 비밀번호 재설정 완료 후 안내 페이지
+def password_reset_complete(request):
+    return render(request, "account/reset_complete.html")

@@ -44,7 +44,8 @@
         <a href="{% url 'api:chat' %}" class="chat-button">채팅하러 가기</a>
     {% else %}
         <!-- ❌ 비회원이면 로그인 페이지로 이동하는 버튼 표시 -->
-        <p style="color: red;">채팅 기능을 사용하려면 로그인하세요.</p>
+        <p style="color: red;">
+            <a href="{% url 'account:login' %}">채팅 기능을 사용하려면 로그인하세요. </a></p>
         <a href="{% url 'account:login' %}" class="chat-button">로그인하러 가기</a>
     {% endif %}
      </div>
