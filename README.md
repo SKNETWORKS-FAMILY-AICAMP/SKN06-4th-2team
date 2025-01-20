@@ -24,9 +24,9 @@
 ---
 
 ### **Stacks**
-|![image](https://github.com/user-attachments/assets/227d16b4-9c5a-4b00-b00c-fcb6986cbf2c)| ddd |   |   |   |   |   |   |   |   |
+|![image](https://github.com/user-attachments/assets/227d16b4-9c5a-4b00-b00c-fcb6986cbf2c)| ![image](https://github.com/user-attachments/assets/49987c99-cb3c-47f1-b20c-087f3035c517)|![image](https://github.com/user-attachments/assets/7734ac1a-06a8-4d7f-9b5b-f7ec5f7c1c34)|![image](https://github.com/user-attachments/assets/374c9758-19bb-43d6-b714-6e537a2456a6)|![image](https://github.com/user-attachments/assets/cd8aaea2-3c3b-42c0-94f8-92cad18b1ec7)|   |   |   |   |   |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| python  |   |   |   |   |   |   |   |   |   |
+|python|RAG|HTML|   |   |   |   |   |   |   |
 
 
 
