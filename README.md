@@ -23,6 +23,14 @@
 
 ---
 
+### **Stacks**
+![image](https://github.com/user-attachments/assets/227d16b4-9c5a-4b00-b00c-fcb6986cbf2c) python
+
+
+
+
+
+
 ## 2. 주요 기능  
 1. **레스토랑 정보 검색:**  
    - 이름, 위치, 메뉴, 평점, 리뷰 등 상세 정보 제공  
