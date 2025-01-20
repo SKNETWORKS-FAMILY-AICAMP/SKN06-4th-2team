@@ -142,15 +142,14 @@
 ## 5. 화면 설계서  
 - **홈 화면:**
 - 챗봇 서비스 소개, 회원가입, 로그인 화면 구성
-<br>
+  </br>
+    
 ![bluerb_chatbot](https://github.com/user-attachments/assets/a3ce9d4d-e478-4fb3-985f-6239e293ecbb)
-
 
 - **챗 화면:**  
 - 챗 서비스 제공 화면 구성
-<br>
+<br/>
 ![Chatting](https://github.com/user-attachments/assets/ee09d065-62a3-4e01-a6fe-0c6e68fe0785)
-
 
 ---
 
@@ -158,7 +157,6 @@
 </br>
 
 ![System_architecture](https://github.com/user-attachments/assets/e5893ba3-956a-45a8-bea8-30a82e1064ce)
-
 
 
 ## 7. 테스트 계획서 및 테스트 결과 보고서  
