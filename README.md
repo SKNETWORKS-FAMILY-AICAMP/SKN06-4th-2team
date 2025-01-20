@@ -149,12 +149,11 @@
 
 ### 테스트 계획서
 </br>
-![테스트 계획서_서버](https://github.com/user-attachments/assets/876e7082-adad-42f9-b2be-e3c9796f8f9f)
 
+![테스트 계획서_서버](https://github.com/user-attachments/assets/0f7aedc4-2d6b-411c-ba60-6227a9f27bcc)
 </br>
-![테스트 계획서_챗봇](https://github.com/user-attachments/assets/966aea6d-e7ee-4604-bdf8-c25e9fa23bd6)
 
-
+![테스트 계획서_챗봇](https://github.com/user-attachments/assets/0b49eed5-a761-4361-a41c-0f4c47ea1bbd)
 
 ### 테스트 결과 보고서
 #### 1. Test 결과
