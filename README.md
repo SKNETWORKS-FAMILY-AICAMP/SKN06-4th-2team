@@ -148,8 +148,10 @@
 
 - **챗 화면:**  
 - 챗 서비스 제공 화면 구성
-<br/>
+</br>
+
 ![Chatting](https://github.com/user-attachments/assets/ee09d065-62a3-4e01-a6fe-0c6e68fe0785)
+
 
 ---
 
