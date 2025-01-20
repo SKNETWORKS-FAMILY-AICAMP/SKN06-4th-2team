@@ -128,7 +128,8 @@
 ---
 
 ## 4. 요구사항 정의서  
-![요구사항 정의서](https://github.com/user-attachments/assets/684e45d4-367c-417d-bc09-e51a07fcaaf4)
+
+![요구사항 정의서](https://github.com/user-attachments/assets/1d6b47f6-08cc-47e8-81f7-cfbb3e9545bd)
 
 ---
 
