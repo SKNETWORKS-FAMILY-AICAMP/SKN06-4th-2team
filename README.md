@@ -8,7 +8,7 @@
 | 강채연 | 김동명| 박창규 | 백하은| 홍준 |
 | --- | --- | --- | --- | --- |
 | ![IE001847808_STD](https://github.com/user-attachments/assets/c2f2176b-7c40-4769-b3a4-7dbef5565109) |![돌아이](https://github.com/user-attachments/assets/eac6eb13-7166-409a-9f04-defaeb629cfe)|![100](https://github.com/user-attachments/assets/89f5e5ed-6412-44bf-99e9-13bef9668415)|![강록이형](https://github.com/user-attachments/assets/3f3a4698-0df0-4028-8a9c-d8ced265a568)|![눈감성재](https://github.com/user-attachments/assets/19d76aae-223c-44b1-9fb9-57fd0991293f)|
-| 백엔드 | 산출물 정리 및 작성 |웹사이트 구축, 프론트엔드|모델 성능 개선, 프론트엔드드| 백엔드 |
+| 백엔드 | 산출물 정리 및 작성 |웹사이트 구축, 프론트엔드|모델 성능 개선, 프론트엔드| 백엔드 |
 
 </br>
 
