@@ -124,6 +124,11 @@
         AnswerRelevancy(llm=eval_llm, embeddings=eval_embedding)
     ]
 ```
+</br>
+
+| |LLM_context_recall|LLM_context_precision_with_reference|Faithfulness|Answer_relevancy|
+|"---"|---|---|---|---|
+|Score|0.8313|0.3611|0.6520|0.3766|
 
 ---
 
