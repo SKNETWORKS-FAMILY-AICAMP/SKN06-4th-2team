@@ -129,7 +129,6 @@
 |LLM_context_recall|LLM_context_precision_with_reference|Faithfulness|Answer_relevancy|
 |---|---|---|---|
 |문맥재현율|정밀도|신뢰도|답변관련성|
-|---|---|---|---|
 |0.8313|0.3611|0.6520|0.3766|
 
 ---
@@ -175,6 +174,7 @@
 
 </br>
 
+**동시접속평가 요약**
 ![동시 접속 평가](https://github.com/user-attachments/assets/7ea620c5-073e-4062-809a-ecd642464d05)
 
 ### 테스트 결과 보고서
